@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fourways Executive Guest House &amp; Spa | Sandton</title>
+<meta name="description" content="Fourways Executive Guest House and Spa — accommodation, massage spa and small-event venue in Brendavere, Sandton, near Fourways and Montecasino. Rated 4.8 from 16 reviews.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C2B2A;
+    --base:#F6F2EA;
+    --card:#FFFFFF;
+    --teal:#1F5C56;
+    --teal-deep:#153F3B;
+    --gold:#C89B5C;
+    --line:#E3DCCB;
+    --muted:#5E5A4F;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Outfit',sans-serif;
+    background:var(--base);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Playfair Display',serif;
+    line-height:1.18;
+    color:var(--ink);
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  section{padding:96px 0;}
+  @media(max-width:700px){section{padding:58px 0;}}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    padding:15px 28px;border-radius:3px;font-weight:600;font-size:14.5px;
+    font-family:'Outfit',sans-serif;
+    border:1.5px solid transparent;cursor:pointer;transition:all .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-gold{background:var(--gold);color:var(--ink);}
+  .btn-gold:hover{background:#B38747;}
+  .btn-outline{background:transparent;border-color:rgba(255,255,255,0.5);color:#fff;}
+  .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.1);}
+  .btn-outline-dark{background:transparent;border-color:var(--ink);color:var(--ink);}
+  .btn-outline-dark:hover{background:var(--ink);color:#fff;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,242,234,0.93);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:17px 0;}
+  .logo{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;}
+  .logo span{color:var(--gold);font-style:italic;}
+  .nav-links{display:flex;align-items:center;gap:30px;}
+  .nav-links a{font-weight:500;font-size:13.5px;color:var(--muted);}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-cta .btn{padding:11px 20px;font-size:13px;}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+  .burger span{width:24px;height:2.5px;background:var(--ink);border-radius:2px;}
+
+  @media(max-width:950px){
+    .nav-links{display:none;}
+    .burger{display:flex;}
+    .nav.open .nav-links{
+      display:flex;flex-direction:column;align-items:flex-start;gap:18px;
+      position:absolute;top:64px;left:0;right:0;background:var(--base);
+      padding:24px;border-bottom:1px solid var(--line);
+    }
+  }
+
+  /* Hero */
+  .hero{position:relative;padding:0;}
+  .hero-bg{position:relative;height:640px;overflow:hidden;}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;}
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg, rgba(21,35,34,0.82) 18%, rgba(21,35,34,0.45) 55%, rgba(21,35,34,0.1) 100%);
+  }
+  .hero-content{position:absolute;inset:0;display:flex;align-items:center;z-index:2;}
+  .hero-content .wrap{width:100%;}
+  .hero-inner{max-width:600px;}
+  .eyebrow-pill{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.3);
+    color:#fff;padding:8px 18px;border-radius:999px;
+    font-size:13px;font-weight:600;letter-spacing:0.3px;
+    margin-bottom:24px;backdrop-filter:blur(4px);
+  }
+  .hero h1{font-size:50px;font-weight:600;letter-spacing:-0.5px;margin-bottom:20px;color:#fff;}
+  .hero h1 em{color:var(--gold);font-style:italic;}
+  @media(max-width:600px){.hero h1{font-size:34px;}}
+  .hero p.lede{font-size:17px;color:#E4E0D6;max-width:480px;margin-bottom:34px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;}
+  @media(max-width:700px){.hero-bg{height:560px;}}
+
+  /* Stat bar */
+  .stat-bar{background:var(--ink);padding:0;}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);}
+  @media(max-width:800px){.stat-grid{grid-template-columns:1fr 1fr;}}
+  .stat-cell{padding:30px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.1);}
+  .stat-cell:last-child{border-right:none;}
+  @media(max-width:800px){.stat-cell:nth-child(2n){border-right:none;}
+    .stat-cell{border-bottom:1px solid rgba(255,255,255,0.1);}
+    .stat-cell:nth-last-child(-n+2){border-bottom:none;}}
+  .stat-cell .big{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);margin-bottom:4px;}
+  .stat-cell .lbl{font-size:11.5px;color:#C8C2B3;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;}
+
+  /* Section head */
+  .section-head{max-width:600px;margin-bottom:50px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .eyebrow{
+    font-size:12.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;
+    color:var(--teal-deep);margin-bottom:12px;display:block;
+  }
+  .section-head h2{font-size:34px;font-weight:600;letter-spacing:-0.3px;margin-bottom:14px;}
+  .section-head p{color:var(--muted);font-size:16px;}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:32px;}}
+  .about-grid img{border-radius:4px;height:420px;object-fit:cover;}
+  @media(max-width:860px){.about-grid img{height:300px;}}
+  .about-text p{color:var(--muted);margin-bottom:16px;font-size:15.5px;}
+  .rating-row{
+    display:flex;align-items:center;gap:12px;margin-top:24px;padding:16px 20px;
+    background:#EFE8D6;border-radius:4px;border-left:3px solid var(--gold);
+  }
+  .rating-row .stars{color:var(--gold);font-size:17px;letter-spacing:1px;}
+  .rating-row .txt{font-size:14px;color:var(--ink);font-weight:700;}
+  .rating-row .txt span{font-weight:500;color:var(--muted);}
+
+  /* Room cards */
+  .room-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:900px){.room-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.room-grid{grid-template-columns:1fr;}}
+  .room-card{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden;}
+  .room-card .img-wrap{height:200px;overflow:hidden;}
+  .room-card img{width:100%;height:100%;object-fit:cover;}
+  .room-body{padding:20px 20px 22px;}
+  .room-body h3{font-size:18px;font-weight:600;margin-bottom:6px;}
+  .room-body p{color:var(--muted);font-size:13.5px;}
+
+  .note{
+    margin-top:32px;background:#FBF6EC;border:1px solid #EFE1C8;
+    border-radius:4px;padding:18px 22px;font-size:13.5px;color:#7A5C33;
+    border-left:3px solid var(--gold);
+  }
+
+  /* Feature band (spa) */
+  .feature-band{background:var(--teal);color:#fff;overflow:hidden;}
+  .fb-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  @media(max-width:860px){.fb-grid{grid-template-columns:1fr;gap:32px;}}
+  .feature-band .eyebrow{color:#BFE0D8;}
+  .feature-band h2{color:#fff;font-size:34px;margin-bottom:16px;}
+  .feature-band p{color:#DCEEE9;font-size:15.5px;margin-bottom:14px;}
+  .fb-img{border-radius:4px;overflow:hidden;height:360px;}
+  .fb-img img{width:100%;height:100%;object-fit:cover;}
+  @media(max-width:860px){.fb-img{height:260px;}}
+
+  /* Attractions */
+  .attr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  @media(max-width:800px){.attr-grid{grid-template-columns:1fr 1fr;}}
+  .attr-card{
+    background:var(--card);border:1px solid var(--line);border-radius:4px;padding:22px 20px;
+    text-align:center;
+  }
+  .attr-card .dist{font-family:'Playfair Display',serif;font-size:20px;color:var(--teal-deep);margin-bottom:4px;}
+  .attr-card .name{font-size:13.5px;font-weight:600;color:var(--ink);}
+
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media(max-width:800px){.gallery{grid-template-columns:1fr 1fr;}}
+  @media(max-width:500px){.gallery{grid-template-columns:1fr;}}
+  .gallery figure{border-radius:4px;overflow:hidden;position:relative;height:230px;}
+  .gallery img{width:100%;height:100%;object-fit:cover;}
+  .gallery figcaption{
+    position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(0deg, rgba(21,35,34,0.85), transparent);
+    color:#fff;padding:16px 18px 14px;font-size:13.5px;font-weight:600;font-family:'Playfair Display',serif;
+  }
+
+  /* Visit / contact */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  @media(max-width:800px){.visit-grid{grid-template-columns:1fr;}}
+  .visit-card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:32px;}
+  .visit-card h3{font-size:19px;font-weight:600;margin-bottom:18px;}
+
+  .info-line{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);}
+  .info-line:last-child{border-bottom:none;}
+  .info-line .ico{
+    width:36px;height:36px;border-radius:50%;background:#EFE8D6;color:var(--gold);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;
+  }
+  .info-line .txt .t1{font-size:11.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;}
+  .info-line .txt .t2{font-size:15.5px;font-weight:600;color:var(--ink);}
+  .info-line a.t2:hover{color:var(--teal-deep);}
+  .directions{margin-top:18px;display:inline-block;font-size:13.5px;font-weight:700;color:var(--teal-deep);letter-spacing:0.2px;}
+  .directions:hover{text-decoration:underline;}
+
+  .ask-list{list-style:none;}
+  .ask-list li{
+    padding:9px 0 9px 24px;position:relative;font-size:14px;color:var(--muted);
+    border-bottom:1px solid var(--line);
+  }
+  .ask-list li:last-child{border-bottom:none;}
+  .ask-list li::before{content:"→";position:absolute;left:0;color:var(--teal-deep);font-weight:700;}
+
+  /* CTA band */
+  .cta-band{position:relative;background:var(--ink);color:#fff;text-align:center;overflow:hidden;}
+  .cta-band::before{
+    content:"";position:absolute;inset:0;
+    background:url('images/pool-evening.jpg') center/cover;
+    opacity:0.2;
+  }
+  .cta-band .wrap{position:relative;z-index:1;}
+  .cta-band h2{font-size:32px;margin-bottom:16px;color:#fff;}
+  .cta-band p{color:#D8D3C4;max-width:480px;margin:0 auto 32px;font-size:15.5px;}
+  .cta-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+
+  /* Footer */
+  footer{padding:36px 0;border-top:1px solid var(--line);}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .footer-row p{font-size:13px;color:var(--muted);}
+
+  /* Mobile sticky bar */
+  .m-bar{
+    display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;
+    background:#fff;border-top:1px solid var(--line);
+    padding:10px 14px;gap:10px;
+    box-shadow:0 -8px 24px rgba(21,35,34,0.12);
+  }
+  .m-bar .btn{flex:1;padding:12px;font-size:13.5px;}
+  @media(max-width:700px){
+    .m-bar{display:flex;}
+    body{padding-bottom:70px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav class="nav" id="nav">
+      <a href="#top" class="logo">Fourways <span>Executive</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#stay">Stay</a>
+        <a href="#spa">Spa</a>
+        <a href="#events">Events</a>
+        <a href="#visit">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-gold" href="https://wa.me/27672491520?text=Hi%20Fourways%20Executive%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">Enquire</a>
+        <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/pool-evening.jpg" alt="Swimming pool and garden at Fourways Executive Guest House, evening light">
+      <div class="hero-content">
+        <div class="wrap">
+          <div class="hero-inner">
+            <span class="eyebrow-pill">● Brendavere, Sandton</span>
+            <h1>Your <em>home away from home</em> in Fourways.</h1>
+            <p class="lede">Fourways Executive Guest House and Spa offers short and long stays, massage treatments, and a clubhouse for small gatherings — minutes from Montecasino.</p>
+            <div class="hero-actions">
+              <a class="btn btn-gold" href="https://wa.me/27672491520?text=Hi%20Fourways%20Executive%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+              <a class="btn btn-outline" href="tel:+27672491520">067 249 1520</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BAR -->
+  <div class="stat-bar">
+    <div class="wrap stat-grid">
+      <div class="stat-cell"><div class="big">4.8 ★</div><div class="lbl">From 16 Reviews</div></div>
+      <div class="stat-cell"><div class="big">Sandton</div><div class="lbl">Brendavere, Fourways</div></div>
+      <div class="stat-cell"><div class="big">4 km</div><div class="lbl">From Montecasino</div></div>
+      <div class="stat-cell"><div class="big">Stay · Spa · Events</div><div class="lbl">All in one place</div></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <img src="images/lounge.jpg" alt="Comfortable lounge area with blue velvet sofa">
+      <div class="about-text">
+        <span class="eyebrow">About us</span>
+        <h2>A home away from home</h2>
+        <p>Fourways Executive Guest House and Spa, based in Brendavere, Sandton, offers guest accommodation for both short and long stays, along with massage treatments and a clubhouse for small parties and gatherings.</p>
+        <p>Whether you're in town for a few nights or settling in for longer, we aim to make it feel like home.</p>
+        <div class="rating-row">
+          <span class="stars">★★★★★</span>
+          <span class="txt">4.8 <span>out of 5, based on 16 Google reviews</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAY -->
+  <section id="stay" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Accommodation</span>
+        <h2>Short &amp; long stays</h2>
+        <p>A selection of rooms to suit your visit — enquire for current availability and rates.</p>
+      </div>
+      <div class="room-grid">
+        <div class="room-card">
+          <div class="img-wrap"><img src="images/purple-velvet-suite.jpg" alt="Styled suite with purple velvet headboard and fresh towels"></div>
+          <div class="room-body"><h3>Suite Room</h3><p>A styled, comfortable room for your stay.</p></div>
+        </div>
+        <div class="room-card">
+          <div class="img-wrap"><img src="images/polka-dot-room.jpg" alt="Bedroom with grey tufted headboard and patterned linen"></div>
+          <div class="room-body"><h3>Double Room</h3><p>Relaxed, well-appointed, ready for guests.</p></div>
+        </div>
+        <div class="room-card">
+          <div class="img-wrap"><img src="images/navy-modern-room.jpg" alt="Modern bedroom with navy accents and air conditioning"></div>
+          <div class="room-body"><h3>Standard Room</h3><p>A clean, modern space with air conditioning.</p></div>
+        </div>
+      </div>
+      <div class="note">The room photos above are from the actual property. We haven't listed specific room counts, rates, check-in/out times or meal arrangements here since these haven't been confirmed — please enquire directly for current room types, pricing and availability.</div>
+    </div>
+  </section>
+
+  <!-- SPA FEATURE -->
+  <section class="feature-band" id="spa">
+    <div class="wrap fb-grid">
+      <div>
+        <span class="eyebrow">Unwind</span>
+        <h2>Massage &amp; spa treatments</h2>
+        <p>Fourways Executive also offers massage treatments at affordable prices, available alongside your stay.</p>
+        <p>Enquire for current treatment options, pricing and whether a booking is required.</p>
+        <div style="margin-top:24px;">
+          <a class="btn btn-outline" href="https://wa.me/27672491520?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20spa%20treatments." target="_blank" rel="noopener">Enquire About the Spa</a>
+        </div>
+      </div>
+      <div class="fb-img">
+        <img src="images/white-tufted-suite.jpg" alt="Relaxing styled bedroom suite with soft furnishings">
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Celebrate here</span>
+        <h2>Clubhouse &amp; small events</h2>
+        <p>A clubhouse on the property can host small parties and gatherings — enquire about capacity, pricing and what's included.</p>
+      </div>
+      <div class="room-grid">
+        <div class="room-card">
+          <div class="img-wrap"><img src="images/pool-daytime.jpg" alt="Garden and pool area, suited to outdoor gatherings"></div>
+          <div class="room-body"><h3>Pool &amp; Garden</h3><p>Outdoor space for relaxing or celebrating.</p></div>
+        </div>
+        <div class="room-card">
+          <div class="img-wrap"><img src="images/purple-velvet-suite.jpg" alt="Styled room set up for a special occasion with decorative petals"></div>
+          <div class="room-body"><h3>Special Occasions</h3><p>Rooms can be styled for birthdays and celebrations.</p></div>
+        </div>
+        <div class="room-card">
+          <div class="img-wrap"><img src="images/lounge.jpg" alt="Indoor lounge space for small gatherings"></div>
+          <div class="room-body"><h3>Indoor Space</h3><p>A comfortable lounge area for guests.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEARBY ATTRACTIONS -->
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Getting around</span>
+        <h2>Close to Fourways' best</h2>
+      </div>
+      <div class="attr-grid">
+        <div class="attr-card"><div class="dist">~4 km</div><div class="name">Montecasino</div></div>
+        <div class="attr-card"><div class="dist">Nearby</div><div class="name">Fourways Mall</div></div>
+        <div class="attr-card"><div class="dist">Nearby</div><div class="name">Cedar Square</div></div>
+        <div class="attr-card"><div class="dist">Nearby</div><div class="name">Broadacres Centre</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="gallery">
+        <figure>
+          <img src="images/pool-evening.jpg" alt="Pool area at dusk">
+          <figcaption>Evenings by the pool</figcaption>
+        </figure>
+        <figure>
+          <img src="images/pool-daytime.jpg" alt="Garden and pool during the day">
+          <figcaption>Gardens &amp; pool</figcaption>
+        </figure>
+        <figure>
+          <img src="images/navy-modern-room.jpg" alt="Modern guest room">
+          <figcaption>A room to relax in</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT / CONTACT -->
+  <section id="visit">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Based in Brendavere, Sandton</h2>
+      </div>
+      <div class="visit-grid">
+        <div class="visit-card">
+          <h3>Contact &amp; Location</h3>
+          <div class="info-line">
+            <div class="ico">📍</div>
+            <div class="txt">
+              <div class="t1">Address</div>
+              <div class="t2">6A Duff Road, Brendavere, Sandton, Gauteng, 2192</div>
+            </div>
+          </div>
+          <div class="info-line">
+            <div class="ico">📞</div>
+            <div class="txt">
+              <div class="t1">Phone</div>
+              <a class="t2" href="tel:+27672491520">067 249 1520</a>
+            </div>
+          </div>
+          <div class="info-line">
+            <div class="ico">💬</div>
+            <div class="txt">
+              <div class="t1">WhatsApp</div>
+              <a class="t2" href="https://wa.me/27672491520?text=Hi%20Fourways%20Executive%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">Message us</a>
+            </div>
+          </div>
+          <a class="directions" href="https://www.google.com/maps/search/?api=1&query=Fourways+Executive+Guest+House+6A+Duff+Road+Brendavere+Sandton" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+        <div class="visit-card">
+          <h3>When you enquire, let us know</h3>
+          <ul class="ask-list">
+            <li>Whether you need accommodation, a spa treatment, or both</li>
+            <li>Your preferred check-in and check-out dates</li>
+            <li>Number of guests</li>
+            <li>If enquiring about the clubhouse — your event date and guest count</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Ready to book your stay?</h2>
+      <p>Get in touch to check availability for accommodation, spa treatments, or the clubhouse.</p>
+      <div class="cta-actions">
+        <a class="btn btn-gold" href="https://wa.me/27672491520?text=Hi%20Fourways%20Executive%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        <a class="btn btn-outline" href="tel:+27672491520">Call 067 249 1520</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>&copy; <span id="year"></span> Fourways Executive Guest House and Spa</p>
+    <p>Site by SXI Digital</p>
+  </div>
+</footer>
+
+<!-- Mobile sticky action bar -->
+<div class="m-bar">
+  <a class="btn btn-gold" href="https://wa.me/27672491520?text=Hi%20Fourways%20Executive%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-outline-dark" href="tel:+27672491520">Call</a>
+</div>
+
+<script>
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  burger.addEventListener('click', function(){
+    var isOpen = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
